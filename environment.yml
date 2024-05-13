@@ -1,0 +1,19 @@
+name: biopyassistantenv
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - chromadb # Vector storage
+  - openai # For embeddings
+  - black # For code formatting
+  - loguru # For logging
+  - langchain # For language processing
+  - langchain-openai
+  - langchain-core
+  - langchain-community
+  - langchain-text-splitters
+  - python-dotenv # For environment variables
+  - matplotlib # For plotting
+  - matplotlib-inline # For plotting in Jupyter
+  - plotly # For plotting
+  - tiktoken # For tokenization
