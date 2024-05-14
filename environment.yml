@@ -9,8 +9,6 @@ dependencies:
   - pandas
   - scikit-learn
   - jupyterlab>=4
-  - ipywidgets
-  - tqdm
   - python-dotenv
   # Ploting
   - matplotlib
