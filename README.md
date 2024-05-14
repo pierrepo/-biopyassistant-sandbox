@@ -20,18 +20,26 @@ Create a Conda environment:
 conda env create -f environment.yml
 ```
 
+Create a `.env` file with a valid OpenAI API key:
+
+```text
+OPENAI_API_KEY=<your-openai-api-key>
+```
+
+> Remark: The `.env` file is ignored by git.
+
 
 ## Usage
 
-### Step 1: Activate the Conda Environment
+### Activate the Conda Environment
 
 Activate the Conda environment by running:
 
 ```bash
-conda activate biopyassistantenv
+conda activate biopyassistant-sandbox-env
 ```
 
-### Step 2: Process the Data
+### Process the Data
 
 Process the data by running:
 
@@ -41,17 +49,22 @@ python src/parse_clean_markdown.py --in data/markdown_raw --out data/markdown_pr
 
 This command will process Markdown files located in the `data/markdown_raw` directory and save the processed files to the `data/markdown_processed` directory.
 
-### Step 2: Set up OpenAI API key
 
-Create a `.env` file with a valid OpenAI API key:
+### Analysis
 
-```text
-OPENAI_API_KEY=<your-openai-api-key>
-```
+#### Embeddings :
 
-> Remark: The `.env` file is ignored by git.
+Run the Jupyter notebook `src/analysis_embeddings.ipynb` to visualize embeddings in a 2D and 3D.
 
-### Step 4: Create Chroma DB
+
+#### Chunk size
+
+Run the jupyter notebook `src/analysis_chunk_size.ipynb` to analyze the impact of the chunk size on the performance of the RAG model.
+
+
+
+
+### Create Chroma DB
 
 Create the Chroma database by running:
 
@@ -74,12 +87,3 @@ This command will create a Chroma database from the processed Markdown files loc
 > Remark: The vector database will be saved on the disk.
 
 
-### Analysis
-
-#### Chunk size :
-
-Run the jupyter notebook `src/analysis_chunk_size.ipynb` to analyze the impact of the chunk size on the performance of the RAG model.
-
-#### Embeddings :
-
-Run the jupyter notebook `src/analysis_embeddings.ipynb` to analyze the embeddings of the text chunks.
