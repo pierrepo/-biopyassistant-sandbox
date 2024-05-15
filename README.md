@@ -1,6 +1,6 @@
 # biopyassistant-sandbox
 
-This is a sandbox repository for the BiopyAssistant project. It contains external data files and scripts that are used for testing, alalysis and development purposes.
+This is a sandbox repository for the BiopyAssistant project. It contains external data files and scripts that are used for testing, analysis and development purposes.
 
 
 ## Installation
@@ -49,21 +49,6 @@ python src/parse_clean_markdown.py --in data/markdown_raw --out data/markdown_pr
 
 This command will process Markdown files located in the `data/markdown_raw` directory and save the processed files to the `data/markdown_processed` directory.
 
-
-### Analysis
-
-#### Embeddings :
-
-Run the Jupyter notebook `src/analysis_embeddings.ipynb` to visualize embeddings in a 2D and 3D.
-
-
-#### Chunk size
-
-Run the jupyter notebook `src/analysis_chunk_size.ipynb` to analyze the impact of the chunk size on the performance of the RAG model.
-
-
-
-
 ### Create Chroma DB
 
 Create the Chroma database by running:
@@ -86,4 +71,17 @@ This command will create a Chroma database from the processed Markdown files loc
 
 > Remark: The vector database will be saved on the disk.
 
+
+### Analysis
+
+#### Embeddings :
+
+Run the Jupyter notebook `src/analysis_embeddings.ipynb` to visualize embeddings in a 2D and 3D.
+
+
+#### Chunk size
+
+Run the jupyter notebook `src/analysis_chunk_size.ipynb` to analyze the impact of the chunk size on the performance of the RAG model.
+
+> Remark: The notebook requires the creation of Chroma databases with different chunk sizes (200, 400, 600, 800, 1000, 1500, 2000 and 3000). The databases should be saved in the `chroma_db_x` directory where `x` is the chunk size.
 
