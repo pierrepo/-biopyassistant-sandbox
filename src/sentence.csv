@@ -1,13 +1,21 @@
-categorie,description
-Python,Python est un langage de programmation interprété dynamique et polyvalent.
-Python,Les développeurs utilisent souvent Python pour l'analyse de données en raison de ses bibliothèques robustes comme Pandas et NumPy.
-Python,La syntaxe claire et concise de Python en fait un excellent choix pour les débutants en programmation.
-Python,Python est un langage polyvalent utilisé dans des domaines allant du développement de jeux à l'automatisation des tâches système.
-Python,Les grandes entreprises telles que Google Facebook et Netflix font largement usage de Python dans leur infrastructure logicielle.
-Python,Les listes en Python sont des structures de données flexibles et polyvalentes permettant de stocker et de manipuler des collections d'éléments.
+category,text
+Programmation,Python est un langage de programmation interprété dynamique et polyvalent.
+Programmation,Les développeurs utilisent souvent Python pour l'analyse de données en raison de ses bibliothèques robustes comme Pandas et NumPy.
+Programmation,La syntaxe claire et concise de Python en fait un excellent choix pour les débutants en programmation.
+Programmation,Python est un langage polyvalent utilisé dans des domaines allant du développement de jeux à l'automatisation des tâches système.
+Programmation,Les grandes entreprises telles que Google Facebook et Netflix font largement usage de Python dans leur infrastructure logicielle.
+Programmation,Les listes en Python sont des structures de données flexibles et polyvalentes permettant de stocker et de manipuler des collections d'éléments.
+Programmation,La vaste bibliothèque standard de Python offre des modules pour pratiquement toutes les tâches courantes de programmation.
+Programmation,Les frameworks web populaires comme Django et Flask sont écrits en Python permettant un développement rapide et efficace des applications web.
 Animaux,Le python royal est une espèce de serpent non venimeux originaire d'Afrique.
-Animaux,Les pandas géants sont célèbres pour leur pelage noir et blanc distinctif.
 Animaux,Les pythons peuvent avaler des proies entières grâce à leur mâchoire extensible.
+Animaux,Certains pythons peuvent atteindre des longueurs impressionnantes dépassant souvent les 6 mètres.
+Animaux,Les pythons sont non venimeux et tuent leur proie en l'étouffant
+Animaux,Les pandas géants sont célèbres pour leur pelage noir et blanc distinctif.
 Animaux,Les pandas roux bien que moins connus que les pandas géants sont également des créatures adorables.
 Animaux,Les pandas passent la majeure partie de leur journée à manger du bambou.
-Animaux,Certains pythons peuvent atteindre des longueurs impressionnantes dépassant souvent les 6 mètres.
+Animaux,Les pandas géants vivent principalement dans les forêts de bambous des montagnes de Chine centrale
+Animaux,Un panda géant adulte peut manger jusqu'à 12 à 38 kilogrammes de bambou par jour.
+Animaux,Les pandas et les serpents Python sont tous deux des vertébrés.
+Animaux,Certaines espèces de pandas et de Python sont menacées et protégées par des lois de conservation.
+Animaux,Le Panda est un mammifère alors que le Python est un reptile.
