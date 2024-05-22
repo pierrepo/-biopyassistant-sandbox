@@ -71,6 +71,32 @@ This command will create a Chroma database from the processed Markdown files loc
 
 > Remark: The vector database will be saved on the disk.
 
+### Get Chunk Statistics
+
+To save the details of each chunk to a text file and the number of tokens and chunks for each file to a CSV file, you can run:
+
+```bash
+python src/get_chunk_stats.py --data-path [data-path] --chroma-path [chroma-path] [--txt-output <txt-output>] [--csv-output <csv-output>]
+```
+
+Where:
+- [data-path]: Path to the Markdown files.
+- [chroma-path]: Path to the Chroma database.
+- [--txt-output] (optional): Name of the output text file to save the chunks with metadata.
+- [--csv-output] (optional): Name of the output CSV file to save the number of tokens and chunks for each Markdown file.
+
+> **Note:** Make sure that the `data-path` matches the `data-path` used in the creation of the Chroma database. For more information, refer to [Create Chroma DB](#create-chroma-db).
+
+
+Example:
+
+```bash
+python src/get_chunk_stats.py --data-path data/markdown_processed --chroma-path chroma_db
+```
+
+This command command will load the processed Markdown files from the `data/markdown_processed` directory and load the Chroma database from the `chroma_db` directory. 
+And save the details of each chunk to a text file named `chroma_db_chunks_details.txt` and the number of tokens and chunks for each file to a CSV file named `chroma_db_stats.csv`.
+
 
 ### Analysis
 
