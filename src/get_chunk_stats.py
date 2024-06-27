@@ -1,23 +1,20 @@
 """Save details of chunks to a text file and/or save the number of tokens and chunks for each files to a CSV file.
 Usage:
 ------
-    python src/get_chunk_stats.py --data_dir [data_dir] --chroma_path [chroma_path] [--txt_output <txt_output>] [--csv_output <csv_output>]
+    python src/get_chunk_stats.py --data_dir [data_dir] --chroma_path [chroma_path]
 Arguments:
 --------
     --data_dir : str
         The path to the directory containing the Markdown documents.
     --chroma_path : str
         The path to the directory containing the Chroma database.
-    --txt_output : str, optional
-        The name of the output text file to save the chunks with metadatas.
-    --csv_output : str, optional
-        The name of the output file to save number of tokens and chunks for each Markdown files contained in the data directory. 
+
 Example:
 --------
-    python src/get_chunk_stats.py --data_dir "data/markdown_processed" --chroma_path "chroma_db" --txt_output "chunks_details_no_overlap" --csv_output "nb_tokens_chunks_no_overlap"
+    python src/get_chunk_stats.py --data_dir "data/markdown_processed" --chroma_path "chroma_db"
 This command will load the Markdown documents from the 'data/markdown_processed' directory, load the Chroma database from the 'chroma_db' directory, 
-reconstruct the chunks from the vector database, save the details of each chunk to a text file named 'chunks_details_no_overlap.txt' 
-and save the number of tokens and chunks for each Markdown files to a CSV file named 'nb_tokens_chunks_no_overlap.csv'.
+reconstruct the chunks from the vector database, save the details of each chunk to a text file named 'chroma_db_chunks_details.txt' 
+and save the number of tokens and chunks for each Markdown files to a CSV file named 'chroma_db_stats_by_chapter.csv'.
 """
 
 # METADATA
@@ -46,7 +43,7 @@ from query_chatbot import load_database
 
 
 # FUNCTIONS
-def get_args() -> Tuple[str, str, str, str]:
+def get_args() -> Tuple[str, str]:
     """Get the command line arguments.
     Returns
     -------
@@ -54,17 +51,12 @@ def get_args() -> Tuple[str, str, str, str]:
         The path to the directory containing the Markdown documents.
     chroma_path : str
         The path to the directory containing the Chroma database.
-    txt_output : str
-        The name of the output text file to save the chunks with metadatas.
-    csv_output : str
-        The name of the output file to save number of tokens and chunks for each Markdown files contained in the data directory.
     """
     logger.info("Getting the command line arguments...")
     # Create the parser
     parser = argparse.ArgumentParser(
         description="Save details of chunks to a text file and save the number of tokens and chunks for each files to a CSV file."
     )
-
     parser.add_argument(
         "--data_dir",
         type=str,
@@ -75,19 +67,6 @@ def get_args() -> Tuple[str, str, str, str]:
         type=str,
         help="The path to the directory containing the Chroma database.",
     )
-    parser.add_argument(
-        "--txt_output",
-        type=str,
-        default=None,
-        help="The name of the output file to save the text chunks with metadata.",
-    )
-    parser.add_argument(
-        "--csv_output",
-        type=str,
-        default=None,
-        help="The name of the output file to save number of tokens and chunks for each Markdown files contained in the data directory.",
-    )
-
     # Parse the command line arguments
     args = parser.parse_args()
 
@@ -115,26 +94,10 @@ def get_args() -> Tuple[str, str, str, str]:
         )
         sys.exit(1)  # Exit the program
 
-    # Warnings if none of the output files are specified
-    if args.txt_output == None and args.csv_output == None:
-        logger.error(
-            "No output file specified. Please specify at least one output file."
-        )
-        sys.exit(1)  # Exit the program
-
-    # Log information for output files
-    if args.txt_output != None:
-        logger.info(
-            f"The details of each chunk will be saved in {args.txt_output}.txt."
-        )
-    if args.csv_output != None:
-        logger.info(
-            f"The number of tokens and chunks for each Markdown file will be saved in {args.csv_output}.csv."
-        )
 
     logger.success("Got the command line arguments successfully.\n")
 
-    return args.data_dir, args.chroma_path, args.txt_output, args.csv_output
+    return args.data_dir, args.chroma_path
 
 
 def add_file_names_to_metadata(documents: List[Document]) -> List[Document]:
@@ -231,18 +194,18 @@ def reconstruct_chunks(vector_db: Chroma) -> List[Document]:
     return chunks
 
 
-def save_to_txt(chunks: List[Document], txt_output: str) -> None:
+def save_to_txt(chunks: List[Document], chroma_path: str) -> None:
     """Save text chunks to a text file with metadata.
     Parameters
     ----------
     chunks : list of Document
         List of text chunks to save to a text file.
-    txt_output : str
-        The name of the output file to save the text chunks with metadata.
+    chroma_path : str
+        The path to the directory containing the Chroma database.
     """
     logger.info(f"Saving into text file...")
 
-    txt_output_path = txt_output + ".txt"  # add .txt extension
+    txt_output_path = chroma_path + "_chunks_details.txt"  # add .txt extension
 
     # Get statistics of the tokens for all the chunks
     all_tokens = sum(chunk.metadata.get("nb_tokens", 0) for chunk in chunks)
@@ -291,7 +254,7 @@ def save_to_csv(
     file_names: List[str],
     documents: List[Document],
     chunks: List[Document],
-    csv_output: str,
+    chroma_path: str,
 ) -> None:
     """Save the number of tokens and chunks for each files
     Parameters
@@ -300,12 +263,12 @@ def save_to_csv(
         List of file names of the Markdown documents.
     chunks : list of Document
         List of text chunks to save to a CSV file.
-    csv_output : str
-        The name of the output file to save the text chunks with metadata.
+    chroma_path : str
+        The path to the directory containing the Chroma database.
     """
     logger.info(f"Saving into CSV file...")
 
-    csv_output_path = csv_output + ".csv"  # add .csv extension
+    csv_output_path = chroma_path + "_stats_by_chapter.csv"  # add .csv extension
 
     # Save the number of tokens and chunks for each files to a CSV file
     with open(csv_output_path, "w") as f:
@@ -335,7 +298,7 @@ def save_to_csv(
 def main() -> None:
     """Main function to save details of chunks to a text file and save the number of tokens and chunks for each files to a CSV file."""
     # Get the command line arguments
-    data_dir, chroma_path, txt_output, csv_output = get_args()
+    data_dir, chroma_path = get_args()
 
     # load documents from the specified directory
     documents = load_documents(data_dir)
@@ -356,12 +319,10 @@ def main() -> None:
     chunks = reconstruct_chunks(vector_db)
 
     # save the details of each chunks to a text file
-    if txt_output != None:
-        save_to_txt(chunks, txt_output)
+    save_to_txt(chunks, chroma_path)
 
     # save the number of tokens and chunks for each files to a CSV file
-    if csv_output != None:
-        save_to_csv(file_names, documents_with_nb_tokens, chunks, csv_output)
+    save_to_csv(file_names, documents_with_nb_tokens, chunks, chroma_path)
 
 
 # MAIN PROGRAM
