@@ -13,6 +13,8 @@ dependencies:
   # Ploting
   - matplotlib
   - plotly
+  # Logging
+  - loguru
   # Linters and formaters
   - pycodestyle
   - pydocstyle
