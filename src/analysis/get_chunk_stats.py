@@ -1,4 +1,4 @@
-"""Save details of chunks to a text file and/or save the number of tokens and chunks for each files to a CSV file.
+"""Save details of chunks to a text file and CSV file.
 Usage:
 ------
     python src/analysis/get_chunk_stats.py --data_dir [data_dir] --chroma_path [chroma_path]
@@ -11,10 +11,11 @@ Arguments:
 
 Example:
 --------
-    python src/analysis/get_chunk_stats.py --data_dir "data/markdown_processed" --chroma_path "chroma_db"
-This command will load the Markdown documents from the 'data/markdown_processed' directory, load the Chroma database from the 'chroma_db' directory, 
-reconstruct the chunks from the vector database, save the details of each chunk to a text file named 'chroma_db_chunks_details.txt' 
-and save the number of tokens and chunks for each Markdown files to a CSV file named 'chroma_db_stats_by_chapter.csv'.
+    python src/analysis/get_chunk_stats.py --chroma_path "chroma_db"
+
+This command will load the Chroma database from the 'chroma_db' directory, reconstruct the chunks from the vector database, 
+save the details of each chunk to a text file named 'chroma_db_chunks_details.txt' 
+and save the id, the file name, the number of tokens and characters for each chunks to a CSV file named 'chroma_db_chunks_stats.csv'.
 """
 
 # METADATA
@@ -32,7 +33,6 @@ import argparse
 from statistics import mean
 from typing import List, Tuple
 
-import tiktoken
 from loguru import logger
 from langchain_core.documents import Document
 from langchain_community.vectorstores import Chroma
@@ -42,29 +42,21 @@ from langchain_community.vectorstores import Chroma
 project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 if project_root not in sys.path:
     sys.path.append(project_root)
-from create_database import load_documents, get_file_names
 from query_chatbot import load_database
 
 
 # FUNCTIONS
-def get_args() -> Tuple[str, str]:
+def get_args() -> str:
     """Get the command line arguments.
     Returns
     -------
-    data_dir : str
-        The path to the directory containing the Markdown documents.
     chroma_path : str
         The path to the directory containing the Chroma database.
     """
     logger.info("Getting the command line arguments...")
     # Create the parser
     parser = argparse.ArgumentParser(
-        description="Save details of chunks to a text file and save the number of tokens and chunks for each files to a CSV file."
-    )
-    parser.add_argument(
-        "--data_dir",
-        type=str,
-        help="The path to the directory containing the Markdown documents.",
+        description="Save details of chunks to a text file and CSV file."
     )
     parser.add_argument(
         "--chroma_path",
@@ -74,12 +66,7 @@ def get_args() -> Tuple[str, str]:
     # Parse the command line arguments
     args = parser.parse_args()
 
-    # Check the required arguments
-    if args.data_dir == None:
-        logger.error(
-            "Please specify the path to the directory containing the Markdown documents."
-        )
-        sys.exit(1)
+    # Check if the Chroma path is provided
     if args.chroma_path == None:
         logger.error(
             "Please specify the path to the directory containing the Chroma database."
@@ -87,82 +74,15 @@ def get_args() -> Tuple[str, str]:
         sys.exit(1)
 
     # Check if the directories exist
-    if not os.path.exists(args.data_dir):
-        logger.error(
-            f"The directory '{args.data_dir}' specified by --data_dir does not exist."
-        )
-        sys.exit(1)  # Exit the program
     if not os.path.exists(args.chroma_path):
         logger.error(
             f"The directory '{args.chroma_path}' specified by --chroma_path does not exist."
         )
         sys.exit(1)  # Exit the program
 
-
     logger.success("Got the command line arguments successfully.\n")
 
-    return args.data_dir, args.chroma_path
-
-
-def add_file_names_to_metadata(documents: List[Document]) -> List[Document]:
-    """Add the file names in the metadata of the documents.
-    Parameters
-    ----------
-    documents : list of Document
-        List of documents to add the file names in the metadata.
-        format : [{"page_content": str, "metadata": dict}, ...]
-    Returns
-    -------
-    documents : list of Document
-        List of documents with the file names in the metadata.
-    """
-    logger.info("Adding the file names in the metadata of the documents...")
-    logger.info(f"{type(documents[0])}")
-    # Add the file names in the metadata of the documents
-    for document in documents:
-        # Extract the file name from the metadata source
-        source = document.metadata.get("source", "")
-        if source:
-            file_name = source.split("/")[-1].split(".")[
-                0
-            ]  # Extract the file name without extension
-            document.metadata["file_name"] = file_name
-
-    logger.success(
-        "Added the file names in the metadata of the documents successfully.\n"
-    )
-
-    return documents
-
-
-def add_nb_tokens_to_metadata(documents: List[Document]) -> List[Document]:
-    """Add the number of tokens in the metadata of the documents.
-    Parameters
-    ----------
-    documents : list of Document
-        List of documents to add the number of tokens in the metadata.
-    Returns
-    -------
-    documents : list of Document
-        List of documents with the number of tokens in the metadata.
-    """
-    logger.info("Adding the number of tokens in the metadata of the documents...")
-
-    # Get the encoding for tokenization
-    # for openai embeddings
-    encoding = tiktoken.get_encoding("cl100k_base")
-
-    # Add the number of tokens in the metadata of the documents
-    for document in documents:
-        # Get the number of tokens in the document
-        nb_tokens = len(encoding.encode(document.page_content))
-        document.metadata["nb_tokens"] = nb_tokens
-
-    logger.success(
-        "Added the number of tokens in the metadata of the documents successfully.\n"
-    )
-
-    return documents
+    return args.chroma_path
 
 
 def reconstruct_chunks(vector_db: Chroma) -> List[Document]:
@@ -227,11 +147,18 @@ def save_to_txt(chunks: List[Document], chroma_path: str) -> None:
         f.write(f"- Min : {min_tokens}\n")
         f.write(f"- Max : {max_tokens}\n\n")
 
+        f.write("Statistics of the characters for all the chunks:\n")
+        f.write(f"- Count : {sum(len(chunk.page_content) for chunk in chunks)}\n")
+        f.write(f"- Mean : {round(mean(len(chunk.page_content) for chunk in chunks), 3)}\n")
+        f.write(f"- Min : {min(len(chunk.page_content) for chunk in chunks)}\n")
+        f.write(f"- Max : {max(len(chunk.page_content) for chunk in chunks)}\n\n")
+
         # sort the chunks by the id
         chunks = sorted(chunks, key=lambda x: x.metadata["id"])
 
         for chunk in chunks:
             f.write(f"Chunk id: {chunk.metadata['id']}\n")
+            f.write(f"Number of Characters: {len(chunk.page_content)}\n")
             f.write(f"Number of Tokens: {chunk.metadata['nb_tokens']}\n")
             f.write(f"Url: {chunk.metadata['url']}\n")
             f.write(f"File Name: {chunk.metadata['file_name']}\n")
@@ -255,43 +182,29 @@ def save_to_txt(chunks: List[Document], chroma_path: str) -> None:
 
 
 def save_to_csv(
-    file_names: List[str],
-    documents: List[Document],
     chunks: List[Document],
     chroma_path: str,
 ) -> None:
-    """Save the number of tokens and chunks for each files
+    """Save details of the chunks to a CSV file.
+
     Parameters
     ----------
-    file_names : list of str
-        List of file names of the Markdown documents.
     chunks : list of Document
         List of text chunks to save to a CSV file.
     chroma_path : str
         The path to the directory containing the Chroma database.
     """
     logger.info(f"Saving into CSV file...")
+    csv_output_path = chroma_path + "_chunks_stats.csv"  # add .csv extension
 
-    csv_output_path = chroma_path + "_stats_by_chapter.csv"  # add .csv extension
+    # order the chunks by the id
+    chunks = sorted(chunks, key=lambda x: x.metadata["id"])
 
-    # Save the number of tokens and chunks for each files to a CSV file
     with open(csv_output_path, "w") as f:
-        f.write("filename, token_number, chunk_number, token_number_from_chunks\n")
-        for filename in file_names:
-            # get the number of tokens in the metadata of the documents
-            for document in documents:
-                if document.metadata.get("file_name", "") == filename:
-                    token_number = document.metadata.get("nb_tokens", 0)
-
-            # get the number of chunks and tokens from the chunks
-            token_number_from_chunks = 0
-            chunk_number = 0
-            for chunk in chunks:
-                if chunk.metadata.get("file_name", "") == filename:
-                    token_number_from_chunks += chunk.metadata.get("nb_tokens", 0)
-                    chunk_number += 1
+        f.write("chunk_id, file_name, nb_chars, nb_tokens\n")
+        for chunk in chunks:
             f.write(
-                f"{filename}, {token_number}, {chunk_number}, {token_number_from_chunks}\n"
+                f"{chunk.metadata['id']}, {chunk.metadata['file_name']}, {len(chunk.page_content)}, {chunk.metadata['nb_tokens']}\n"
             )
 
     logger.success(
@@ -300,21 +213,9 @@ def save_to_csv(
 
 
 def main() -> None:
-    """Main function to save details of chunks to a text file and save the number of tokens and chunks for each files to a CSV file."""
+    """Main function to save details of chunks to a text file and CSV file."""
     # Get the command line arguments
-    data_dir, chroma_path = get_args()
-
-    # load documents from the specified directory
-    documents = load_documents(data_dir)
-
-    # get the file names of the documents
-    file_names = get_file_names(documents)
-
-    # add the file names in the metadata of the documents
-    documents_with_file_names = add_file_names_to_metadata(documents)
-
-    # get the number of tokens for each document
-    documents_with_nb_tokens = add_nb_tokens_to_metadata(documents_with_file_names)
+    chroma_path = get_args()
 
     # load the Chroma database
     vector_db = load_database(chroma_path)[0]
@@ -326,7 +227,7 @@ def main() -> None:
     save_to_txt(chunks, chroma_path)
 
     # save the number of tokens and chunks for each files to a CSV file
-    save_to_csv(file_names, documents_with_nb_tokens, chunks, chroma_path)
+    save_to_csv(chunks, chroma_path)
 
 
 # MAIN PROGRAM
