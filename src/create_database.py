@@ -1,28 +1,31 @@
-"""Creates the ChromaDB database from Markdown files in the specified directory.
+"""Creates the vectorial Chroma database from Markdown files in the specified directory.
 
 This script loads Markdown files from the specified directory, concatenates their content, 
 and splits the content into chunks based on headers and word limits. The resulting chunks are saved to a ChromaDB database.
 
 Usage:
 ======
-    python src/create_database.py --data_dir [data_dir] --chroma_out [chroma_output] --chunk_size [chunk_size] --chunk_overlap [chunk_overlap] 
+    python src/create_database.py --data-path [data-path] --chroma-path [chroma-path] --chunk-size [chunk-size] --chunk-overlap [chunk-overlap] 
 
-Options:
-    data_dir : str, optional
-        The directory containing the processed Markdown files of the python course. Default: PROCESSED_DATA_PATH"
-    chroma_output : str, optional
-        The name of the output path to save the ChromaDB database. Default: CHROMA_PATH.
-    chunk_size : int, optional
-        The size of the text chunks to be created. Default: CHUNK_SIZE.
-    chunk_overlap : int, optional
-        The overlap between text chunks. Default: CHUNK_OVERLAP.
+Arguments:
+==========
+    --data-path : str
+        The directory containing the processed Markdown files of the python course.
+    --chroma-path : str
+        The name of the output path to save the ChromaDB database.
+    --chunk-size : int (optional)
+        The size of the text chunks to be created. Default is 1000.
+    --chunk-overlap : int (optional)
+        The overlap between text chunks. Default is 200.
+    
 
 Example:
 ========
-    python src/create_database.py --data_dir data/markdown_processed --chroma_out chroma_db --chunk_size 500 --chunk_overlap 50
+    python src/create_database.py --data-path data/markdown_processed --chroma-path chroma_db
 
-This command will create a Chroma database from the processed Markdown files located in the `data/markdown_processed` directory. 
-The text will be split into chunks of 500 characters with an overlap of 50 characters. And finally the Chroma database will be saved to the `chroma_db` directory.
+This command will create a vectorial Chroma database from the processed Markdown files located in the `data/markdown_processed` directory.
+The text will be split into chunks of 1000 characters with an overlap of 200 characters.
+And finally the vectorial Chroma database will be saved to the `chroma_db` directory.
 """
 
 # METADATA
@@ -45,7 +48,7 @@ import tiktoken
 from loguru import logger
 from langchain_openai import OpenAIEmbeddings
 from langchain_core.documents import Document
-from langchain.vectorstores.chroma import Chroma
+from langchain_community.vectorstores import Chroma
 from langchain_community.document_loaders import TextLoader, DirectoryLoader
 from langchain_text_splitters import (
     MarkdownHeaderTextSplitter,
@@ -54,10 +57,8 @@ from langchain_text_splitters import (
 
 
 # CONSTANTS
-CHUNK_SIZE = 600
-CHUNK_OVERLAP = 100
-CHROMA_PATH = "chroma_db"
-PROCESSED_DATA_PATH = "data/markdown_processed"
+CHUNK_SIZE = 1000
+CHUNK_OVERLAP = 200
 EMBEDDING_MODEL = "text-embedding-3-large"
 
 
@@ -67,8 +68,8 @@ def get_args() -> tuple[str, str, int, int]:
 
     Returns
     -------
-    data_dir, chroma_output_path, chunk_size, chunk_overlap : Tuple[str, str, int, int]
-        - data_dir : str
+    data_path, chroma_output_path, chunk_size, chunk_overlap : Tuple[str, str, int, int]
+        - data_path : str
             The directory containing the processed Markdown files of the python course.
         - chroma_output_path : str
             The name of the output path to save the ChromaDB database.
@@ -81,50 +82,45 @@ def get_args() -> tuple[str, str, int, int]:
     parser = argparse.ArgumentParser(
         description="Create a ChromaDB database from Markdown files in the specified directory."
     )
-
     # Add the arguments
     parser.add_argument(
-        "--data_dir",
-        default=PROCESSED_DATA_PATH,
+        "-d",
+        "--data-path",
+        dest="data_path",
         help="The directory containing the processed Markdown files of the python course.",
     )
     parser.add_argument(
-        "--chroma_out",
-        default=CHROMA_PATH,
+        "-c",
+        "--chroma-path",
+        dest="chroma_path",
         help="The name of the output path to save the ChromaDB database.",
     )
     parser.add_argument(
-        "--chunk_size",
+        "-s",
+        "--chunk-size",
+        dest="chunk_size",
+        type=int,
         default=CHUNK_SIZE,
         help="The size of the text chunks to be created.",
     )
     parser.add_argument(
-        "--chunk_overlap",
+        "-o",
+        "--chunk-overlap",
+        dest="chunk_overlap",
+        type=int,
         default=CHUNK_OVERLAP,
         help="The overlap between text chunks.",
     )
     # Parse the arguments
     args = parser.parse_args()
 
-    # Convert the arguments to the correct types
-    args.chunk_size = int(args.chunk_size)
-    args.chunk_overlap = int(args.chunk_overlap)
-
     # Checks
     # db_path should exist
-    if not os.path.exists(args.data_dir):
-        logger.error(f"The data directory '{args.data_dir}' does not exist.")
-        sys.exit(1)
-    # chunk_size should be a positive integer
-    if not isinstance(args.chunk_size, int):
-        logger.error("The chunk size should be an integer.")
+    if not os.path.exists(args.data_path):
+        logger.error(f"The data directory '{args.data_path}' does not exist.")
         sys.exit(1)
     if args.chunk_size <= 0:
         logger.error("The chunk size should be a positive integer.")
-        sys.exit(1)
-    # chunk_overlap should be a positive integer
-    if not isinstance(args.chunk_overlap, int):
-        logger.error("The chunk overlap should be an integer.")
         sys.exit(1)
     if args.chunk_overlap <= 0:
         logger.error("The chunk overlap should be a positive integer.")
@@ -137,8 +133,8 @@ def get_args() -> tuple[str, str, int, int]:
         sys.exit(1)
 
     return (
-        args.data_dir,
-        args.chroma_out,
+        args.data_path,
+        args.chroma_path,
         args.chunk_size,
         args.chunk_overlap,
     )
@@ -264,7 +260,7 @@ def split_text(content: str, chunk_size: int, chunk_overlap: int) -> list[Docume
     text_splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,
         chunk_overlap=chunk_overlap,
-        # split on paragraphs, sentences
+        # split on paragraphs and sentences
         separators=["\n\n", "\n"],
     )
 
@@ -307,6 +303,7 @@ def remove_small_chunks(
     ]
 
     logger.info(f"Number of chunks after removing small chunks: {len(chunks_cleaned)}")
+    logger.info(f"Number of chunks removed: {len(chunks) - len(chunks_cleaned)}\n")
     logger.success("Removed small chunks successfully.\n")
 
     return chunks_cleaned
@@ -393,17 +390,15 @@ def add_file_names_to_metadata(
         chapter_name = chunk.metadata.get("chapter_name", "")
         # Get the chapter number or appendix letter
         chapter_number = re.match(r"^\d+\s", chapter_name)
-        appendix_letter = re.search(r"\b[A-Z]+\s", chapter_name)
+        appendix_letter = re.search(r"\b[A-Z]", chapter_name)
         # Corresponding chapter number or appendix letter with file name
         for file_name in file_names:
             if chapter_number and file_name.startswith(
                 f"{chapter_number.group(0).strip().zfill(2)}_"
             ):  # zfill(2) to pad with zeros
                 chunk.metadata["file_name"] = file_name
-                break
-            elif appendix_letter and file_name.endswith(
-                f"_{appendix_letter.group(0).strip()}"
-            ):
+                break 
+            elif appendix_letter.group(0) == file_name.split("_")[1]:
                 chunk.metadata["file_name"] = file_name
                 break
 
@@ -518,15 +513,14 @@ def save_to_chroma(chunks: list[Document], chroma_output_path: str) -> None:
     if os.path.exists(chroma_output_path):
         shutil.rmtree(chroma_output_path)
 
-    # Create a new DB from the documents.
+    # Create a new DB from the documents and save it to disk
     model_embedding = OpenAIEmbeddings(model=EMBEDDING_MODEL)
-    db = Chroma.from_documents(
+    Chroma.from_documents(
         chunks,
         model_embedding,
         persist_directory=chroma_output_path,
         collection_metadata={"hnsw:space": "cosine"},
     )  # distance metric
-    db.persist()  # save the database to disk
 
     logger.success(f"Saved {len(chunks)} chunks to {chroma_output_path}.")
 
@@ -534,10 +528,10 @@ def save_to_chroma(chunks: list[Document], chroma_output_path: str) -> None:
 def generate_data_store() -> None:
     """Generates data store by loading, splitting text into chunks, adding metadata and saving the chunks to ChromaDB."""
     # get command-line arguments
-    data_dir, chroma_output_path, chunk_size, chunk_overlap = get_args()
+    data_path, chroma_path, chunk_size, chunk_overlap = get_args()
 
     # load documents from the specified directory
-    documents = load_documents(data_dir)
+    documents = load_documents(data_path)
 
     # extract file names from the documents
     file_names = get_file_names(documents)
@@ -564,7 +558,7 @@ def generate_data_store() -> None:
     chunks_with_url = add_url_to_metadata(chunks_with_file_names)
 
     # save the chunks to ChromaDB
-    save_to_chroma(chunks_with_url, chroma_output_path)
+    save_to_chroma(chunks_with_url, chroma_path)
 
 
 # MAIN PROGRAM
