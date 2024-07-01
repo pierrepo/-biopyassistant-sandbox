@@ -1,16 +1,18 @@
 """Save details of chunks to a text file and CSV file.
+
 Usage:
-------
+======
     python src/analysis/get_chunk_stats.py --data_dir [data_dir] --chroma_path [chroma_path]
+
 Arguments:
---------
+==========
     --data_dir : str
         The path to the directory containing the Markdown documents.
     --chroma_path : str
         The path to the directory containing the Chroma database.
 
 Example:
---------
+========
     python src/analysis/get_chunk_stats.py --chroma_path "chroma_db"
 
 This command will load the Chroma database from the 'chroma_db' directory, reconstruct the chunks from the vector database, 
