@@ -16,7 +16,7 @@ Arguments:
 
 Example:
 ========
-    python src/create_database_split_by_headers.py --data-path data/markdown_processed --chroma-path chroma_db
+    python src/create_database_split_by_headers.py --data-path data/markdown_processed --chroma-path chroma_db_split_by_headers
 
 This command will create a vectorial Chroma database from the processed Markdown files located in the `data/markdown_processed` directory.
 The text will be split into chunks based on headers. And finally the vectorial Chroma database will be saved to the `chroma_db` directory.
