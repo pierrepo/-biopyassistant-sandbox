@@ -13,6 +13,7 @@ dependencies:
   # Ploting
   - matplotlib
   - plotly
+  - seaborn
   # Logging
   - loguru
   # Linters and formaters
