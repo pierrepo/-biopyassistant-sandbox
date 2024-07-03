@@ -203,10 +203,10 @@ def save_to_csv(
     chunks = sorted(chunks, key=lambda x: x.metadata["id"])
 
     with open(csv_output_path, "w") as f:
-        f.write("chunk_id, file_name, nb_chars, nb_tokens\n")
+        f.write("chunk_id,file_name,nb_chars,nb_tokens\n")
         for chunk in chunks:
             f.write(
-                f"{chunk.metadata['id']}, {chunk.metadata['file_name']}, {len(chunk.page_content)}, {chunk.metadata['nb_tokens']}\n"
+                f"{chunk.metadata['id']},{chunk.metadata['file_name']},{len(chunk.page_content)},{chunk.metadata['nb_tokens']}\n"
             )
 
     logger.success(
