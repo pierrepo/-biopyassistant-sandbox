@@ -8,6 +8,7 @@ dependencies:
   - numpy
   - pandas
   - scikit-learn
+  - umap-learn
   - jupyterlab>=4
   - python-dotenv
   # Ploting

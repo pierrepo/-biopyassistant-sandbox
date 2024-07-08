@@ -141,7 +141,7 @@ def get_args() -> tuple[str, str, int, int]:
 
 
 def load_documents(data_dir: str) -> list[Document]:
-    """Load Markdown documents, concatenate their content, and extract the name of the Markdown files.
+    """Load Markdown documents from the specified directory.
 
     Parameters
     ----------
