@@ -34,6 +34,7 @@ dependencies:
   - langchain-community
   - langchain-text-splitters
   - tiktoken # For tokenization
+  - transformers # For tokenization
   - pip:
     # watermark: keep track of dependency versions
     - watermark
