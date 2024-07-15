@@ -1,0 +1,402 @@
+questions:
+  'Chapitre 1 : Introduction':
+  - Q1: Pourquoi Python est-il considéré comme un langage multiplateforme ?
+  - Q2: Quels sont les avantages de l'utilisation de Python par rapport à d'autres langages de programmation ?
+  - Q3: Quelle est la différence entre Python 2 et Python 3 ?
+  - Q4: Comment installer Python ?
+  - Q5: Qu’est-ce que miniconda ?
+  - Q6: Comment lance-t-on python à partir d’un shell ?
+  - Q7: Qu'est-ce que signifie "langage interprété" en informatique ?
+  - Q8: Comment quitter l'interpréteur Python ?
+  - Q9: Comment déboguer un programme avec Python ?
+  - Q10: Quelle est la différence entre l'interpréteur Python et un script Python ?
+  - Q11: Comment exécute-t-on un script Python ?
+  - Q12: Qu'est-ce qu'un commentaire en Python et son utilité ?
+  - Q13: Quelle est l’utilité de l'indentation en Python ? Quel style d'indentation est recommandé en Python ?
+  - Q14: Existe-t-il d’autres ressources pour apprendre le Python ?
+  - Q15: Quelles sont les différences entre les shells Unix, PowerShell et autres ?
+  'Chapitre 2 : Variables':
+  - Q1: Qu'est-ce qu'une variable en programmation ?
+  - Q2: Comment déclarer une variable en Python ?
+  - Q3: Quelle est la spécificité de Python en ce qui concerne la déclaration et l'initialisation de variables ?
+  - Q4: Quels sont les principaux types de variables ?
+  - Q5: Qu'est-ce que le casting ?
+  - Q6: Qu'est-ce que l'écriture scientifique en Python ?
+  - Q7: Comment vérifier le type d'une variable en Python ?
+  - Q8: Comment convertir le type d'une variable en Python ?
+  - Q9: Quelle est la différence entre l'opérateur + utilisé avec des entiers et des chaînes de caractères en Python ?
+  - Q10: Que veut dire concaténer des chaînes de caractères ?
+  - Q11: À quoi sert la fonction type() en Python ?
+  - Q12: Pourquoi il y a des _ dans les nombres ?
+  - Q13: Quelle est la signification de l'opérateur += en Python ?
+  - Q14: A quoi servent les noms de variables reservées ?
+  - Q15: Comment utiliser l'opérateur % ?
+  - Q16: 'Exercices :'
+  - Q17: Qu'est-ce qu'un nombre de Friedman ?
+  - Q18: Comment puis-je déterminer si une expression est un nombre de Friedman en Python ?
+  - Q19: Quelle est la différence entre la division normale (/), la division entière (//) et le modulo (%)
+  'Chapitre 3 : Affichage':
+  - Q1: Que veut dire  l'argument "end" dans la fonction print() ?
+  - Q2: Qu'est-ce qu'une f-string ?
+  - Q3: Comment utiliser pour l'écriture formatée ?
+  - Q4: À quoi sert le caractère "f" avant les guillemets dans une f-string ?
+  - Q5: Quelles sont les différentes spécifications de format que l'on peut utiliser avec les f-strings ?
+  - Q6: Comment indiquer le nombre de décimales à afficher un float avec une f-string ?
+  - Q7: Quelle est la différence entre utiliser la lettre "s" et la lettre "d" dans une f-strings?
+  - Q8: Comment concaténer des chaînes de caractères dans une f-string ?
+  - Q9: Quels sont les avantages de l'utilisation des f-strings par rapport aux autres méthodes de formatage des chaînes de caractères ?
+  - Q10: Comment afficher un nombre en notation scientifique avec une f-strings?
+  - Q11: Quelle est la différence entre une f-string et la fonction print() lorsqu'une f-string est donnée à la fonction print() ?
+  - Q12: Comment Python interprète-t-il une f-string et quel type de données renvoie-t-il ?
+  - Q13: Comment inclure des expressions Python directement dans les accolades d’une f-string ?
+  - Q14: Comment afficher le type d'une variable dans d'une f-string ?
+  - Q15: Est-ce possible d’utiliser une f-string en dehors de la fonction print() ?
+  - Q16: 'Exercices :'
+  - Q17: Donne moi un indice pour commencer l’exercice “3.6.2 Poly-A”.
+  - Q18: Pour générer en une seule ligne de code un brin d'ADN poly-A, pensez à utiliser l'opération de multiplication pour répéter une base plusieurs fois.
+  - Q19: Donne moi un indice pour commencer l’exercice “3.6.3 Poly-A et poly-GC”.
+  - Q20: Pour générer en une seule ligne de code un brin d'ADN poly-A suivi d'un poly-GC, vous pouvez combiner l'opération de multiplication avec des chaînes de caractères pour chaque motif, puis les concaténer.
+  - Q21: Donne moi un indice pour commencer l’exercice “3.6.4 Écriture formatée”.
+  - Q22: Vous pouvez utiliser des f-strings pour formater l'affichage des variables a, b et c.
+  - Q23: Donne moi un indice pour commencer l’exercice “3.6.5 Écriture formatée 2”.
+  - Q24: Utilisez les f-strings pour formater la variable perc_GC en spécifiant le nombre de décimales pour chaque affichage. Vous pouvez utiliser la méthode round() pour arrondir le nombre avec le nombre de décimales souhaité avant de le formater.
+  'Chapitre 4 : Listes':
+  - Q1: Qu'est-ce qu'une liste en Python ?
+  - Q2: Quelles sont les caractéristiques d'une liste en Python ?
+  - Q3: Quel est l'avantage principal des listes en Python par rapport à d'autres structures de données ?
+  - Q4: Quels types de données peuvent être stockés dans une liste en Python ?
+  - Q5: Comment déclarer une liste en Python ?
+  - Q6: Peut-on créer une liste contenant des variables de types différents en Python ?
+  - Q7: Qu'est-ce qu'un indice dans une liste ?
+  - Q8: Comment accède-t-on aux éléments d'une liste ?
+  - Q9: Quelle est la différence entre les indices positifs et négatifs dans une liste ?
+  - Q10: À quoi sert la  méthode .append() pour les listes ?
+  - Q11: Comment accède-t-on au dernier élément d'une liste sans connaître sa longueur en Python ?
+  - Q12: Que se passe-t-il  si on tente d'accéder à un indice qui n'existe pas dans une liste ?
+  - Q13: Quelle est la différence entre les méthodes .remove() et .pop() pour supprimer des éléments d'une liste ?
+  - Q14: À quoi peuvent servir les listes de listes ?
+  - Q15: Quelles fonctions renvoient la somme, le minimum et le maximum d'une liste ?
+  - Q16: 'Exercice :'
+  - Q17: Donne moi un indice pour commencer l’exercice “4.10.1 Jours de la semaine”
+  - Q18: Commencez par créer une liste semaine contenant les jours de la semaine. Ensuite, utilisez l'indiçage pour répondre aux différentes questions.
+  - Q19: Donne moi un indice pour commencer l’exercice “4.10.2 Saisons”
+  - Q20: Créez d'abord les listes hiver, printemps, ete et automne. Ensuite, créez une liste saisons contenant ces listes. Utilisez l'indiçage pour accéder aux éléments de la liste saisons et comprendre les différentes instructions.
+  - Q21: Donne moi un indice pour commencer l’exercice  “4.10.3 Table de multiplication par 9 “
+  - Q22: Utilisez la fonction range() pour générer les nombres de 1 à 10 (inclus) et créez une liste en utilisant la fonction list(). Ensuite, utilisez une compréhension de liste pour obtenir les résultats de la table de multiplication par 9 en une seule commande.
+  - Q23: Donne moi un indice pour commencer l’exercice  “4.10.4 Nombres pairs“
+  - Q24: Utilisez la fonction range() avec les arguments appropriés pour générer les nombres de 2 à 10000 (inclus) en sautant de 2 en 2 (puisque vous cherchez les nombres pairs). Ensuite, utilisez la fonction len() pour compter le nombre total de nombres pairs dans cet intervalle en une seule commande.
+  'Chapitre 5 : Boucles et comparaisons':
+  - Q1: Qu'est-ce qu'une boucle for en Python ?
+  - Q2: Qu'est-ce qu'une variable d'itération ?
+  - Q3: Qu'est-ce que la fonction enumerate() et comment l'utilise-t-on avec une boucle for ?
+  - Q4: 'Quelle est la meilleure façon d''itérer sur une liste : en utilisant les indices ou en itérant directement sur les éléments ?'
+  - Q5: Peut-on imbriquer des boucles for les unes dans les autres ?
+  - Q6: Comment arrêter une boucle for prématurément ?
+  - Q7: Quelle est la différence entre une boucle for et une boucle while ?
+  - Q8: Quelle est la différence entre les opérateurs == et = ?
+  - Q9: Comment fonctionnent les opérateurs de comparaison <, >, <= et >= ?
+  - Q10: Comment éviter les boucles infinies lors de l'utilisation de boucles while ?
+  - Q11: Quelle est la signification des termes "initialisation", "test" et "mise à jour" dans le contexte d'une boucle while ?
+  - Q12: Qu'est-ce qu'un booléen et comment est-il utilisé dans les comparaisons ?
+  - Q13: Que signifie ‘!=” ?
+  - Q14: Est-il possible de combiner des boucles for et while dans un même script Python ?
+  - Q15: Comment fonctionne l'instruction continue et dans quel cas devrait-on l'utiliser ?
+  - Q16: Quelle est la différence entre l'opérateur < et l'opérateur <= ?
+  - Q17: 'Exercice :'
+  - Q18: Donne moi un indice pour commencer l’exercice “5.4.1 Boucles de base”
+  - Q19: Pour afficher les éléments de la liste ["vache", "souris", "levure", "bacterie"], utilisez une boucle for avec in pour parcourir chaque élément de la liste ou avec range  avec l'indice de chaque élément. Avec une boucle while, initialiser un compteur pour itérer sur les éléments jusqu'à la fin de la liste.
+  - Q20: Donne moi un indice pour commencer l’exercice “5.4.2 Boucle et jours de la semaine”
+  - Q21: utiliser une boucle for pour parcourir cette liste et afficher les jours. Pour afficher les jours du week-end avec une boucle while, initialiser un compteur à 0, puis utilisez une condition pour arrêter la boucle une fois que vous avez atteint les deux derniers jours de la semaine.
+  - Q22: Donne moi un indice pour commencer l’exercice  “5.4.3 Nombres de 1 à 10 sur une ligne“
+  - Q23: Il existe une option end dans print() qui permet de spécifier ce qui doit être ajouté à la fin de chaque appel à print().
+  - Q24: Donne moi un indice pour commencer l’exercice  “5.4.4 Nombres pairs et impairs“
+  - Q25: Commencez par créer une liste vide appelée "pairs". Ensuite, parcourez la liste "impairs" et pour chaque élément, ajoutez 1 à cet élément et ajoutez-le à la liste "pairs"
+  - Q26: Donne moi un indice pour commencer l’exercice  “5.4.5 Calcul de la moyenne“
+  - Q27: Commencez par calculer la somme des notes en utilisant la fonction sum() sur la liste de notes. Ensuite, divisez cette somme par le nombre total de notes pour obtenir la moyenne. Utilisez ensuite l'écriture formatée pour afficher la moyenne avec deux décimales.
+  - Q28: Donne moi un indice pour commencer l’exercice  “5.4.6 Produit de nombres consécutifs“
+  - Q29: Commencez par créer une liste d'entiers contenant les nombres entiers pairs de 2 à 20 inclus en utilisant la fonction list() avec range(). Ensuite, utilisez une boucle pour calculer le produit des nombres consécutifs deux à deux de cette liste en multipliant chaque élément par celui qui le suit.
+  - Q30: Donne moi un indice pour commencer l’exercice  “5.4.7 Triangle“
+  - Q31: Commencez par utiliser une boucle for pour itérer sur le nombre de lignes. À chaque itération, utilisez une deuxième boucle for pour afficher le nombre d'étoiles correspondant à la ligne actuelle.
+  - Q32: Donne moi un indice pour commencer l’exercice  “5.4.8 Triangle inversé“
+  - Q33: commencez par utiliser une boucle for pour itérer sur le nombre de lignes dans l'ordre inverse. À chaque itération, utilisez une deuxième boucle for pour afficher le nombre d'étoiles correspondant à la ligne actuelle.
+  - Q34: Donne moi un indice pour commencer l’exercice  “5.4.9 Triangle gauche“
+  - Q35: commencez par utiliser une boucle for pour itérer sur le nombre de lignes dans l'ordre inverse. À chaque itération, utilisez une deuxième boucle for pour afficher le nombre d'étoiles correspondant à la ligne actuelle.
+  - Q36: Donne moi un indice pour commencer l’exercice  “5.4.10 Pyramide“
+  - Q37: commencez par demander à l'utilisateur le nombre de lignes N avec la commande input(“Question à l’utilisateur”). Ensuite, utilisez une boucle for pour itérer sur le nombre de lignes. À chaque itération, utilisez une deuxième boucle for pour afficher d'abord les espaces vides correspondant à l'alignement à gauche, puis les étoiles. La quantité d'espaces vides nécessaires peut être déduite du nombre total de lignes et du numéro de la ligne actuelle.
+  - Q38: Donne moi un indice pour commencer l’exercice  “5.4.11 Parcours de matrice“
+  - Q39: commencer par créer une boucle for pour itérer sur chaque ligne de la matrice. À l'intérieur de cette boucle, créez une deuxième boucle for pour itérer sur chaque colonne de la matrice. À chaque itération, affichez le numéro de ligne et le numéro de colonne actuels, en veillant à justifier correctement les chiffres à droite sur 4 caractères. Avec les 2 boucles while, initialisez les indices de ligne et de colonne à 1, puis utilisez une boucle while pour itérer sur chaque ligne et à l'intérieur une autre boucle while pour itérer sur chaque colonne, en incrémentant les indices à chaque itération et en affichant le numéro de ligne et de colonne avec un formatage approprié (fstring).
+  - Q40: Donne moi un indice pour commencer l’exercice  “5.4.12 Parcours de demi-matrice sans la diagonale“
+  - Q41: commencez par initialiser les indices de ligne et de colonne à 1, puis utilisez deux boucles imbriquées pour parcourir les éléments de la demi-matrice en excluant les indices de même valeur et en affichant le numéro de ligne et de colonne. Ensuite, calculez le nombre total de cases parcourues en utilisant une formule spécifique à la dimension N de la matrice. Enfin, concevez une seconde version du script qui n'affiche que la valeur de N et le nombre de cases parcourues pour des valeurs de N allant de 2 à 10, afin de trouver une formule générale reliant le nombre de cases parcourues à N.
+  - Q42: Donne moi un indice pour commencer l’exercice  “5.4.13 Sauts de puce“
+  - Q43: Pour simuler le mouvement de la puce en utilisant une boucle while, vous pouvez initialiser une variable position à 0 pour représenter l'emplacement initial de la puce. Ensuite, à chaque itération de la boucle while, générez un saut aléatoire en utilisant random.choice([-1, 1]) pour déterminer si la puce doit avancer d'une unité vers la droite ou vers la gauche. Incrémentez ensuite la position de la puce en fonction du saut obtenu. Répétez ce processus jusqu'à ce que la puce atteigne l'emplacement final de 5. Comptez le nombre total de sauts nécessaires pour réaliser ce parcours en initialisant une variable au début à 0 qui est incrémenter de 1 à chaque pas.
+  - Q44: Donne moi un indice pour commencer l’exercice  “5.4.14 Suite de Fibonacci“
+  - Q45: Pour créer une liste fibo contenant les 15 premiers termes de la suite de Fibonacci, vous pouvez initialiser une liste avec les deux premiers termes 0 et 1. Ensuite, vous pouvez utiliser une boucle for pour calculer les termes suivants en utilisant la relation de récurrence de Fibonacci et les ajouter à la liste. Enfin, affichez la liste fibo.
+  - Q46: Pour calculer le rapport entre chaque élément de rang n et l'élément de rang n-1, vous pouvez parcourir la liste fibo avec une boucle for, en commençant à l'indice 1, puis diviser chaque élément par son prédécesseur et afficher le résultat. Vous pouvez observer si ce rapport tend vers une constante.
+  'Chapitre 6 : Tests':
+  - Q1: Pourquoi les tests sont-ils importants en programmation ?
+  - Q2: Pourquoi est-il déconseillé de tester l'égalité entre des nombres flottants ?
+  - Q3: Peut-on utiliser des opérateurs de comparaison (>, <, >=, <=) avec des nombres flottants ?
+  - Q4: Comment peut-on gérer les cas où une variable peut avoir plusieurs valeurs possibles dans un test en Python ?
+  - Q5: Quelle est la différence entre les opérateurs 'and' et 'or' dans les tests ?
+  - Q6: Quelle est la signification de l'instruction 'not' dans un test en Python ?
+  - Q7: Quels sont les opérateurs de comparaison disponibles en Python pour les tests de valeurs ?
+  - Q8: Quelle est l'utilité de l'instruction pass dans un test en Python ?
+  - Q9: Quels sont les outils et les bibliothèques disponibles pour les tests unitaires en Python ?
+  - Q10: Quelle est la différence entre les opérateurs == et is en Python ?
+  - Q11: Qu'est-ce qu'une assertion en Python et comment peut-on l'utiliser pour les tests ?
+  - Q12: Comment peut-on tester des fonctions ou des méthodes en Python ?
+  - Q13: Quels sont les avantages de l'écriture de tests automatisés par rapport aux tests manuels en Python ?
+  - Q14: Quel est l'avantage d'utiliser if True ou if False dans un programme Python ?
+  - Q15: Peut-on utiliser à la fois les opérateurs and et or dans une seule instruction if en Python ?
+  - Q16: 'Exercice :'
+  - Q17: Donne moi un indice pour commencer l’exercice 6.7.1 Jours de la semaine
+  - Q18: Pour résoudre cet exercice, pensez à utiliser une boucle for pour parcourir chaque jour de la semaine et à inclure
+  - Q19: des instructions if pour afficher les messages appropriés en fonction du jour.
+  - Q20: Donne moi un indice pour commencer l’exercice 6.7.2 Séquence complémentaire d'un brin d'ADN
+  - Q21: Créez une nouvelle liste vide pour stocker la séquence complémentaire. Utilisez une boucle for pour parcourir
+  - Q22: chaque élément de la séquence d'ADN.  À l'intérieur de la boucle, utilisez des instructions if pour déterminer le
+  - Q23: complément de chaque base et ajoutez-la à la nouvelle liste.
+  - Q24: Donne moi un indice pour commencer l’exercice 6.7.3 Minimum d'une liste
+  - Q25: Initialisez une variable min_element avec une valeur initiale très grande, puis utilisez une boucle for pour parcourir la liste et mettre à jour min_element si un élément plus petit est trouvé.
+  - Q26: Donne moi un indice pour commencer l’exercice 6.7.4 Fréquence des acides aminés
+  - Q27: Initialisez des compteurs pour chaque acide aminé, puis utilisez une boucle for pour parcourir la liste et incrémenter les compteurs en fonction de l'acide aminé rencontré.
+  - Q28: Donne moi un indice pour commencer l’exercice 6.7.5 Notes et mention d'un étudiant
+  - Q29: Utilisez la fonction max() et min() pour trouver la note maximale et minimale, puis calculez la moyenne en ajoutant toutes les notes et en les divisant par le nombre total de notes. Enfin, utilisez des instructions if et elif pour déterminer la mention en fonction de la moyenne calculée.
+  - Q30: Donne moi un indice pour commencer l’exercice 6.7.6 Nombres pairs
+  - Q31: Utilisez une boucle for pour parcourir les nombres de 0 à 20, puis utilisez l'opérateur modulo % pour déterminer si un nombre est pair ou impair et affichez-le en conséquence.
+  - Q32: Donne moi un indice pour commencer l’exercice 6.7.7 Conjecture de Syracuse (exercice +++)
+  - Q33: Commencez par définir une fonction qui prend un nombre en entrée et qui applique les règles de la conjecture de Syracuse pour générer la suite. Ensuite, utilisez une boucle pour itérer sur les nombres et appliquer la fonction jusqu'à ce que le nombre atteigne 1.
+  - Q34: Donne moi un indice pour commencer l’exercice 6.7.8 Attribution de la structure secondaire des acides aminés d'une protéine (exercice +++)
+  - Q35: Débutez par rechercher les codes des acides aminés ainsi que leurs structures secondaires correspondantes. Ensuite, créez une fonction qui prend en entrée une séquence d'acides aminés et qui attribue la structure secondaire à chacun d'eux en fonction de certaines règles.
+  - Q36: Donne moi un indice pour commencer l’exercice 6.7.9 Détermination des nombres premiers inférieurs à 100 (exercice +++)
+  - Q37: Démarrez en écrivant une fonction qui teste si un nombre est premier ou non. Ensuite, utilisez une boucle pour générer tous les nombres de 2 à 100 et appliquer la fonction pour déterminer s'ils sont premiers ou non.
+  - Q38: Donne moi un indice pour commencer l’exercice  6.7.10 Recherche d'un nombre par dichotomie (exercice +++)
+  - Q39: Commencez par trier la liste de nombres dans l'ordre croissant. Ensuite, définissez une fonction de recherche par dichotomie qui prend en entrée la liste triée et le nombre à rechercher. Divisez la liste en deux à chaque itération et déterminez dans quelle moitié se trouve le nombre recherché jusqu'à le trouver.
+  'Chapitre 7 : Fichiers':
+  - Q1: Comment ouvrir un fichier en Python ?
+  - Q2: Quelle est la différence entre les modes de lecture et d'écriture dans Python ?
+  - Q3: Comment lire le contenu d'un fichier ligne par ligne ?
+  - Q4: Quelle est l'utilité de la méthode .readlines() en Python ?
+  - Q5: Pourquoi est-il important de fermer un fichier après l'avoir utilisé en Python ?
+  - Q6: Comment écrire dans un fichier en Python ? Quelle est la différence entre les méthodes .write() et .writelines() ?
+  - Q7: Peut-on ouvrir plusieurs fichiers simultanément en Python ?
+  - Q8: Quels sont les formats de fichiers les plus courants utilisés en bioinformatique ?
+  - Q9: Quelle est la structure typique d'un fichier FASTA ? Comment lire et écrire des séquences dans un fichier FASTA ?
+  - Q10: Quels sont les types de données stockés dans un fichier GFF (Generic Feature Format) et comment les manipuler ?
+  - Q11: Quelles sont les bibliothèques Python les plus utiles pour la manipulation de fichiers en bioinformatique ?
+  - Q12: Comment importer des séquences biologiques à partir de fichiers externes en Python ?
+  - Q13: Existe-t-il des outils ou des techniques pour paralléliser les opérations sur les fichiers en Python ?
+  - Q14: Existe-t-il des bonnes pratiques pour le stockage et le partage sécurisé de fichiers de données biologiques ?
+  - Q15: Comment les avancées dans le domaine de l'apprentissage automatique et de l'intelligence artificielle sont-elles appliquées à la manipulation de données biologiques dans des fichiers ?
+  - Q16: 'Exercice :'
+  - Q17: Donne moi un indice pour commencer l’exercice 7.7.1 Moyenne des notes
+  - Q18: Pour commencer, ouvrez le fichier "notes.txt" en mode lecture et utilisez une boucle pour parcourir chaque ligne du fichier. Ensuite, pour chaque ligne lue, convertissez la note en un nombre décimal à l'aide de la fonction float(). Stockez ces notes converties dans une liste. Enfin, calculez la moyenne de ces notes en additionnant toutes les notes et en divisant par le nombre total de notes, puis affichez le résultat avec deux décimales.
+  - Q19: Donne moi un indice pour commencer l’exercice 7.7.2 Admis ou recalé
+  - Q20: Pour commencer, ouvrez le fichier "notes.txt" en mode lecture et lire chaque ligne. Convertissez chaque note en un nombre décimal et stockez-les dans une liste. Ensuite, ouvrez un nouveau fichier "notes2.txt" en mode écriture. Parcourez la liste des notes et pour chaque note, écrivez-la dans le fichier "notes2.txt" suivie de "recalé" si la note est inférieure à 10 ou "admis" si elle est supérieure ou égale à 10.
+  - Q21: Donne moi un indice pour commencer l’exercice 7.7.3 Spirale (exercice +++)
+  - Q22: Commencez par importer le module math avec l'instruction "import math". Ensuite, créez une boucle qui va générer les valeurs d'angle et de rayon nécessaires pour décrire la spirale. À chaque itération de la boucle, calculez les coordonnées cartésiennes en utilisant les fonctions sinus et cosinus du module math. Enregistrez ensuite ces coordonnées dans le fichier "spirale.dat" en respectant le format demandé. Enfin, utilisez le code fourni pour visualiser la spirale générée.
+  'Chapitre 8 : Modules':
+  - Q1: Qu'est-ce qu'un module en Python ?
+  - Q2: Quelle est la syntaxe pour importer un module en Python ?
+  - Q3: Quelle est la différence entre import module et from module import fonction ?
+  - Q4: Pourquoi utiliser un alias pour un module ?
+  - Q5: Quelle commande permet d'obtenir de l'aide sur un module ?
+  - Q6: Comment peut-on obtenir de l'aide sur une fonction particulière d'un module ?
+  - Q7: Quelle commande permet de voir toutes les méthodes ou variables associées à un objet ?
+  - Q8: Quelle est la différence entre une méthode et une fonction en Python ?
+  - Q9: Quels sont les principaux modules courants importants à connaître ?
+  - Q10: Quel module permet d'interagir avec le système d'exploitation ?
+  - Q11: Si vous souhaitez récupérer des données sur internet depuis Python, quel module utiliseriez-vous ?
+  - Q12: Quel module permet de générer des nombres aléatoires ?
+  - Q13: Quel module permet de créer des représentations graphiques telles que des courbes ou des diagrammes en bâtons ?
+  - Q14: Qu'est-ce qu'une graine aléatoire et pourquoi est-elle utile ?
+  - Q15: Quelle fonction du module os permet de vérifier la présence d'un fichier sur le disque dur ?
+  'Chapitre 9 : Fonctions':
+  - Q1: Qu'est-ce qu'une fonction en programmation et à quoi sert-elle ?
+  - Q2: Qu'est-ce qu'un argument ?
+  - Q3: Quelle est la syntaxe pour définir une fonction en Python ?
+  - Q4: Que signifie le mot-clé return dans une fonction ? Que se passe-t-il si une fonction ne contient pas de mot-clé return ?
+  - Q5: Quelle est la différence entre un argument positionnel et un argument par mot-clé ?
+  - Q6: Expliquez la différence entre une variable locale et une variable globale.
+  - Q7: Que signifie l'acronyme DRY et comment les fonctions aident-elles à appliquer ce principe ?
+  - Q8: Pourquoi est-il recommandé de préciser le nom des arguments par mot-clé lors de l'appel d'une fonction ?
+  - Q9: Comment une fonction peut-elle renvoyer plusieurs valeurs ?
+  - Q10: Que se passe-t-il lorsque vous mélangez des arguments positionnels et par mot-clé dans un appel de fonction ?
+  - Q11: Que signifie le terme "programme principal" en Python ?
+  - Q12: Comment stocke-t-on le résultat renvoyé par une fonction dans une variable ?
+  - Q13: Que signifie le terme "typage dynamique" en Python et comment cela affecte-t-il les arguments passés à une fonction ?
+  - Q14: Que se passe-t-il si une fonction attend des arguments positionnels mais ne les reçoit pas tous lors de l'appel ?
+  - Q15: Que se passe-t-il avec les variables locales lorsque Python quitte une fonction ?
+  'Chapitre 10 : Plus sur les chaînes de caractères':
+  - Q1: Qu'est-ce qu'une chaîne de caractères ?
+  - Q2: Comment peut-on mesurer la longueur d'une chaîne de caractères ?
+  - Q3: Pourquoi les chaînes de caractères sont-elles considérées comme non modifiables ?
+  - Q4: Comment accéder à un caractère spécifique dans une chaîne de caractères en utilisant un index ?
+  - Q5: Que fait le caractère spécial \n dans une chaîne de caractères ?
+  - Q6: Comment pouvez-vous inclure des guillemets simples ou doubles dans une chaîne de caractères sans provoquer d'erreur ?
+  - Q7: C’est quoi une f-string ?
+  - Q8: Quelle est la différence entre les méthodes .upper() et .lower() ?
+  - Q9: Comment pouvez-vous mettre en majuscule uniquement la première lettre d'une chaîne de caractères ?
+  - Q10: Que fait la méthode .split() ?
+  - Q11: Comment utiliser la méthode .count() pour compter les occurrences d'une sous-chaîne ?
+  - Q12: Que fait la méthode .startswith() ?
+  - Q13: Que fait la méthode .strip() ?
+  - Q14: Comment utiliser la méthode .join() pour convertir une liste de chaînes de caractères en une seule chaîne de caractères avec un séparateur spécifique ?
+  - Q15: Comment utiliser la fonction help() pour obtenir de l'aide sur une méthode particulière d'une chaîne de caractères ?
+  'Chapitre 11 :  Plus sur les listes':
+  - Q1: Que fait la méthode .append() ?
+  - Q2: Quelle est l'alternative à .append() pour ajouter un élément à la fin d'une liste et pourquoi .append() est-elle préférable ?
+  - Q3: Comment utilisez-vous la méthode .insert() pour insérer un élément dans une liste à un indice spécifique ?
+  - Q4: Quelle est la différence entre del et les autres méthodes des listes ?
+  - Q5: Comment utilisez-vous del pour supprimer un élément d'une liste à un indice spécifique ?
+  - Q6: Que se passe-t-il si la liste contient plusieurs fois l'élément à supprimer ?
+  - Q7: Quelle est la différence entre .sort() et sorted() ?
+  - Q8: Que fait la méthode .reverse() ?
+  - Q9: Que fait la méthode .count() ?
+  - Q10: Pourquoi certaines méthodes comme .append() ou .sort() ne renvoient-elles pas d'objet récupérable ?
+  - Q11: Quelle est la différence entre l'affectation d'une liste et la création d'une copie explicite d'une liste ?
+  - Q12: Comment créez-vous une copie explicite d'une liste à une dimension ?
+  - Q13: Pourquoi les méthodes de copie [:] et list() ne fonctionnent-elles pas pour les listes à plusieurs dimensions ?
+  - Q14: Comment créez-vous une copie profonde d'une liste contenant des listes ?
+  - Q15: Qu'est-ce qu'une liste de compréhension en Python ?
+  'Chapitre 12 :  Plus sur les fonctions':
+  - Q1: Est-il possible d'appeler une fonction depuis n'importe où dans le programme ? Pourquoi ?
+  - Q2: Qu'est-ce qu'une fonction récursive et comment diffère-t-elle d'un appel de fonction normal ?
+  - Q3: Que fait le mot-clé global dans une fonction ? Pourquoi est-il généralement déconseillé de modifier des variables globales dans une fonction ?
+  - Q4: Pourquoi est-il souvent préférable de passer une copie de la liste ?
+  - Q5: Quelle est la règle LGI et comment s'applique-t-elle en Python ?
+  - Q6: Pourquoi est-il déconseillé d'utiliser des variables globales ?
+  - Q7: Comment pouvez-vous rendre explicite la modification d'une liste dans une fonction ?
+  - Q8: Pourquoi est-il recommandé de faire en sorte que les fonctions renvoient des valeurs modifiées plutôt que de modifier des objets directement ?
+  - Q9: Comment documenter correctement une fonction qui modifie ses arguments ?
+  - Q10: Comment déterminer quelles parties de votre programme doivent être décomposées en fonctions ?
+  - Q11: Quels sont les avantages de décomposer un programme en plusieurs fonctions ?
+  - Q12: Quels exercices ou projets recommandez-vous pour pratiquer la création et l'utilisation des fonctions en Python ?
+  - Q13: Quels sont les principaux défis que vous avez rencontrés en travaillant avec des fonctions et comment les avez-vous surmontés ?
+  'Chapitre 13 :  Containers, dictionnaires, tuples et sets¶':
+  - Q1: Qu'est-ce qu'un container en Python et quels sont ses principaux types ?
+  - Q2: Quelles sont les propriétés communes à tous les containers ? Expliquez chacune brièvement.
+  - Q3: Quelle est la différence entre un objet modifiable et un objet non modifiable ?
+  - Q4: Qu'est-ce qu'un objet hachable ? Pourquoi est-ce important dans le contexte des containers comme les dictionnaires et les sets ?
+  - Q5: Qu'est-ce qu'un dictionnaire ? Comment est-il structuré et comment y accède-t-on ?
+  - Q6: Quelles sont les méthodes principales pour itérer sur les clés, les valeurs et les éléments d'un dictionnaire ?
+  - Q7: Comment vérifiez-vous l'existence d'une clé ou d'une valeur dans un dictionnaire ?
+  - Q8: Comment triez-vous un dictionnaire par ses clés et par ses valeurs ?
+  - Q9: Expliquez l'utilité de la méthode .get() sur un dictionnaire et comment l'utiliser efficacement.
+  - Q10: Quelle est la principale différence entre un tuple et une liste ?
+  - Q11: Expliquez pourquoi les tuples sont moins adaptés que les listes pour des opérations de modification fréquentes.
+  - Q12: Pourquoi est-il déconseillé d'inclure des listes dans des tuples en Python ?
+  - Q13: Comment utilise-t-on le caractère _ pour ignorer des valeurs dans une affectation multiple ?
+  - Q14: Expliquez le concept de "hachabilité" des tuples.
+  - Q15: Quelle est la principale caractéristique des objets de type set en Python ?
+  'Chapitre 14 :  Création de modules':
+  - Q1: Qu'est-ce qu'un module et pourquoi est-il utile dans la programmation ?
+  - Q2: Quelles sont les étapes nécessaires pour créer son propre module ?
+  - Q3: Quelle est la convention de nommage recommandée pour les constantes dans un module Python ?
+  - Q4: Quel est le rôle des docstrings dans un module Python ?
+  - Q5: Comment importer un module personnalisé dans un script Python ?
+  - Q6: Quelle est la différence entre un module et un script Python ?
+  - Q7: 'Pourquoi utilise-t-on souvent la condition if __name__ == "__main__": dans un script Python ?'
+  - Q8: Quel est le but de la variable d'environnement PYTHONPATH ?
+  - Q9: Comment Python gère-t-il l'importation de modules et la visibilité des fonctions entre modules ?
+  - Q10: Quelle commande permet de générer automatiquement une documentation de module ?
+  'Chapitre 15 :  Bonnes pratiques en programmation Python':
+  - Q1: Qu'est-ce que la PEP 8 et pourquoi est-elle importante pour les développeurs ?
+  - Q2: Pourquoi est-il recommandé d'utiliser une indentation de 4 espaces ?
+  - Q3: Quelles sont les différences entre import module et from module import * en termes de bonnes pratiques ?
+  - Q4: Quel est le style de nommage recommandé pour les variables et les fonctions ?
+  - Q5: Pourquoi éviter les noms de variables tels que a1, a2, i, truc, toto ?
+  - Q6: Quelles règles s'appliquent à l'espacement autour des opérateurs selon la PEP 8 ?
+  - Q7: Pourquoi est-il recommandé de limiter la longueur d'une ligne de code à 79 caractères en Python ?
+  - Q8: Quand faut-il utiliser le caractère \ pour couper une ligne de code ?
+  - Q9: Quelle est la recommandation concernant les lignes vides dans un script Python ?
+  - Q10: Comment les commentaires doivent-ils être formatés selon la PEP 8 ?
+  - Q11: Qu'est-ce qu'une docstring et pourquoi est-elle importante ?
+  - Q12: Quels sont les outils recommandés pour vérifier la qualité du code Python et pourquoi sont-ils utiles ?
+  - Q13: Pourquoi est-il conseillé d'écrire les commentaires en anglais plutôt qu'en français pour les projets Python ?
+  - Q14: Comment écrire une docstring selon la PEP 257 pour une fonction Python ?
+  'Chapitre 16 :  expressions régulières':
+  - Q1: Qu'est-ce qu'une expression régulière et pourquoi est-elle importante en bioinformatique ?
+  - Q2: Quelle est la différence entre les caractères normaux et les métacaractères dans une expression régulière ?
+  - Q3: Comment peut-on définir le début et la fin d'une chaîne de caractères en utilisant des expressions régulières ?
+  - Q4: Expliquer l'utilisation du métacaractère . dans une expression régulière. Quels types de caractères peut-il représenter ?
+  - Q5: Comment peut-on définir un ensemble de caractères à l'aide des crochets [...] dans une expression régulière ?
+  - Q6: Quelle est la signification du métacaractère + dans une expression régulière ?
+  - Q7: Quand devrait-on utiliser la méthode search() par rapport aux méthodes match() et fullmatch() dans le module re ?
+  - Q8: Quel est l'avantage de compiler une expression régulière avec re.compile() avant de l'utiliser à plusieurs reprises ?
+  - Q9: Quelle méthode du module re permet de trouver toutes les occurrences correspondantes dans une chaîne de caractères et de les retourner sous forme de liste ?
+  - Q10: Quelle est la différence entre search(), match() et fullmatch() dans le module re de Python ?
+  - Q11: Comment peut-on utiliser les métacaractères ^ et $ pour définir le début et la fin d'une ligne dans une expression régulière ?
+  - Q12: Quelle méthode du module re permet de trouver toutes les occurrences correspondantes dans une chaîne de caractères et de les retourner sous forme de liste ?
+  - Q13: Expliquer l'utilisation des groupes dans une expression régulière. Comment peut-on récupérer les données correspondant à un groupe ?
+  - Q14: Quelles sont les différences entre sub() et findall() dans le module re ?
+  'Chapitre 17 : Quelques modules d''intérêt en bioinformatique':
+  - Q1: Qu'est-ce que le module NumPy et pourquoi est-il incontournable en bioinformatique ?
+  - Q2: Comment importer le module NumPy en utilisant un alias ?
+  - Q3: Qu'est-ce qu'un objet de type array en NumPy et comment le crée-t-on à partir d'une liste ?
+  - Q4: Quelles sont les méthodes disponibles pour connaître les dimensions, la forme et la taille d'un array NumPy ?
+  - Q5: Quels types de données peuvent être contenus dans un array NumPy ?
+  - Q6: Qu'est-ce que le module Biopython et pourquoi est-il utilisé en bioinformatique ?
+  - Q7: Comment définit-on une séquence ADN avec Biopython ?
+  - Q8: Quel sous-module de Biopython permet d'interroger la base de données PubMed ?
+  - Q9: Qu'est-ce que le module matplotlib et pourquoi est-il utilisé en analyse de données ?
+  - Q10: Quelles sont les étapes pour générer un graphique de points avec matplotlib ?
+  - Q11: Comment peut-on enregistrer un graphique généré avec matplotlib sous forme d'une image ?
+  - Q12: Quelles sont les fonctionnalités avancées que matplotlib peut offrir pour l'analyse de données ?
+  - Q13: Quelle commande permet de connaître les dimensions d'un DataFrame ?
+  - Q14: Comment charger un fichier .csv dans un DataFrame en utilisant pandas ?
+  'Chapitre 18 :  notebooks Jupyter':
+  - Q1: Qu'est-ce qu'un notebook Jupyter ?
+  - Q2: Combien de langages de programmation sont supportés par Jupyter ?
+  - Q3: Qu'est-ce qu'une cellule dans un notebook Jupyter ?
+  - Q4: Quelle commande permet d'installer Jupyter avec Miniconda ?
+  - Q5: Comment lancer Jupyter depuis un shell ?
+  - Q6: Pourquoi est-il recommandé de relancer complètement l'exécution de toutes les cellules d'un notebook ?
+  - Q7: Comment spécifier qu'une cellule est au format Markdown ?
+  - Q8: Quelle commande spéciale permet d'incorporer des graphiques dans un notebook Jupyter ?
+  - Q9: Qu'est-ce qu'une magic command ?
+  - Q10: Comment lancer une commande Unix depuis un notebook Jupyter ?
+  - Q11: Qu'est-ce que JupyterLab et en quoi diffère-t-il des notebooks Jupyter traditionnels ?
+  - Q12: Pourquoi les notebooks Jupyter sont-ils particulièrement adaptés à l'analyse de données ?
+  - Q13: Donnez un exemple concret d'utilisation des notebooks Jupyter dans un contexte de recherche scientifique.
+  'Chapitre 19 :  19 Avoir la classe avec les objets':
+  - Q1: Qu'est-ce qu'une classe en programmation orientée objet (POO) ?
+  - Q2: Quelle est la différence entre une classe et un objet ?
+  - Q3: Comment ajouter un attribut d'instance à un objet en Python ?
+  - Q4: Quelle est la différence entre un attribut d'instance et un attribut de classe ?
+  - Q5: Que représente le terme self dans une méthode de classe ?
+  - Q6: Qu'est-ce qu'un constructeur en POO ?
+  - Q7: Comment définit-on une méthode ?
+  - Q8: Qu'est-ce que le polymorphisme en POO ?
+  - Q9: Qu'est-ce que l'héritage en POO ?
+  - Q10: Comment utilise-t-on l'instruction del pour détruire un attribut d'instance ?
+  - Q11: Comment passe-t-on des arguments au constructeur lors de l'instanciation d'un objet ?
+  - Q12: Pourquoi est-il important de toujours inclure self comme premier argument dans les méthodes d'une classe ?
+  - Q13: Quelle erreur peut-on rencontrer si on oublie d'attacher un attribut à self ?
+  - Q14: Qu'est-ce que le dictionnaire .__dict__ d'un objet ?
+  - Q15: Comment distinguer les méthodes spéciales comme .__init__() des méthodes ordinaires ?
+  'Chapitre 20 :  fenêtres graphiques et Tkinter':
+  - Q1: Qu'est-ce qu'une GUI et pourquoi est-elle utile dans le développement d'applications Python ?
+  - Q2: Quels sont les principaux modules disponibles pour construire des applications graphiques en Python ?
+  - Q3: Pourquoi a-t-on choisi Tkinter pour ce cours ?
+  - Q4: Expliquez la différence entre une interaction via la ligne de commande et une interaction via une GUI.
+  - Q5: Qu'est-ce qu'un widget ?
+  - Q6: Qu'est-ce qu'un gestionnaire d'événements et quel est son rôle dans une application Tkinter ?
+  - Q7: C’est quoi une fonction callback ?
+  - Q8: Comment crée-t-on une fenêtre principale avec Tkinter et quels sont les principaux composants nécessaires ?
+  - Q9: Qu'est-ce que la méthode .pack() et comment l'utilise-t-on pour placer des widgets dans une fenêtre Tkinter ?
+  - Q10: Comparez l'utilisation de la méthode .quit() et de la méthode .destroy() pour quitter une application Tkinter.
+  - Q11: Pourquoi est-il conseillé de développer des applications Tkinter en utilisant des classes ?
+  - Q12: Comment utilise-t-on la méthode .mainloop() dans une application Tkinter et quel est son rôle ?
+  'Chapitre 21 :  Remarques complémentaires':
+  - Q1: En Python 2, comment utilise-t-on l'instruction print ?
+  - Q2: Quelle erreur obtient-on si l'on utilise print sans parenthèses en Python 3 ?
+  - Q3: Quelle est la différence majeure dans le comportement de la division entre Python 2 et Python 3 ?
+  - Q4: Quelle est la différence d'utilisation des caractères accentués entre Python 2 et Python 3 ?
+  - Q5: Comment utilisez-vous les instructions try et except pour gérer les exceptions en Python ?
+  - Q6: Comment intercepter une exception de type ValueError spécifiquement ?
+  - Q7: Pourquoi est-il recommandé de toujours préciser le type d'exception dans un bloc except ?
+  - Q8: Comment rendre un script Python exécutable sous Unix ?
+  - Q9: Quelle est la différence entre *args et **kwargs dans la définition d'une fonction ?
+  - Q10: Comment sauvegarder l'historique des commandes dans un fichier en utilisant le module readline ?
+  - Q11: Comment recharger cet historique lors d'une nouvelle session Python ?
