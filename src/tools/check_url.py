@@ -4,7 +4,7 @@ This script reads a file containing URLs and checks if each URL is valid. If the
 
 Usage:
 ======
-    python src/analysis/check_url.py <file_name>
+    python src/tools/check_url.py <file_name>
 
 Arguments:
 ==========
@@ -13,7 +13,7 @@ Arguments:
 
 Example:
 ========
-    python src/analysis/check_url.py chroma_db_chunks_details.txt
+    python src/tools/check_url.py chroma_db_chunks_details.txt
 
 This command will read the file `chroma_db_chunks_details.txt` and check each URL in the file. 
 If the URL is valid, it will also check if the anchor is valid.
